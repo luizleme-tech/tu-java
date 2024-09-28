@@ -1,17 +1,21 @@
 package br.com.luizleme.tech.tujava.calculadora;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculadoraTest {
 
+	Calculadora calculadora;
+
+	@BeforeEach
+	void setUp() {
+		calculadora = new Calculadora();
+	}
+
 	@Test
 	void deveSomarDoisNumerosEValidarOResultado() {
-
-		//ARRANGE
-		Calculadora calculadora = new Calculadora();
-
 		//ACT
 		int resultado = calculadora.somar(1, 6);
 
@@ -21,9 +25,6 @@ public class CalculadoraTest {
 
 	@Test
 	void deveValidarSeASomaDeDoisNumerosNaoEhIgualAoValorInformado() {
-		//ARRENGE
-		Calculadora calculadora = new Calculadora();
-
 		//ACT
 		int resultado = calculadora.somar(1, 6);
 
@@ -33,9 +34,6 @@ public class CalculadoraTest {
 
 	@Test
 	void deveValidarSeNumeroEhMaiorQueZero(){
-		//ARRANGE
-		Calculadora calculadora = new Calculadora();
-
 		//ACT
 		boolean resultado = calculadora.validaSeEhMaiorQueZero(1);
 
@@ -45,9 +43,6 @@ public class CalculadoraTest {
 
 	@Test
 	void deveValidarSeNumeroEhMenorQueZero(){
-		//ARRANGE
-		Calculadora calculadora = new Calculadora();
-
 		//ACT
 		boolean resultado = calculadora.validaSeEhMaiorQueZero(-5);
 
@@ -57,10 +52,6 @@ public class CalculadoraTest {
 
 	@Test
 	void deveValidarSeEhNulo() {
-
-		//ARRANGE
-		Calculadora calculadora = new Calculadora();
-
 		//ACT
 		int resultado = calculadora.somar(1, 6);
 
