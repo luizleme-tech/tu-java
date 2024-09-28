@@ -2,8 +2,7 @@ package br.com.luizleme.tech.tujava.calculadora;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculadoraTest {
 
@@ -30,5 +29,17 @@ public class CalculadoraTest {
 
 		//ASSERT
 		assertNotEquals(8, resultado, "a soma de 1 + 6 não deve ser igual a 8");
+	}
+
+	@Test
+	void deveValidarSeNumeroEhMaiorQueZero(){
+		//ARRANGE
+		Calculadora calculadora = new Calculadora();
+
+		//ACT
+		boolean resultado = calculadora.validaSeEhMaiorQueZero(1);
+
+		//ASSERT
+		assertTrue(resultado, "o número 1 é maior que zero");
 	}
 }
