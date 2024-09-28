@@ -42,4 +42,16 @@ public class CalculadoraTest {
 		//ASSERT
 		assertTrue(resultado, "o número 1 é maior que zero");
 	}
+
+	@Test
+	void deveValidarSeNumeroEhMenorQueZero(){
+		//ARRANGE
+		Calculadora calculadora = new Calculadora();
+
+		//ACT
+		boolean resultado = calculadora.validaSeEhMaiorQueZero(-5);
+
+		//ASSERT
+		assertFalse(resultado, "o número -5 é menor que zero");
+	}
 }
