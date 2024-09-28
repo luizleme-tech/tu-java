@@ -8,4 +8,11 @@ public class Calculadora {
 	public boolean validaSeEhMaiorQueZero(int i) {
 		return i > 0;
 	}
+
+	public int dividir(int dividendo, int divisor) {
+		if (divisor == 0) {
+			throw new ArithmeticException("Divisor nao pode ser zero");
+		}
+		return dividendo / divisor;
+	}
 }

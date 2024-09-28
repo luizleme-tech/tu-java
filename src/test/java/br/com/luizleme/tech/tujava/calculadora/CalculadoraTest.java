@@ -58,4 +58,10 @@ public class CalculadoraTest {
 		//ASSERT
 		assertNotNull(resultado, "o resultado não deve ser nulo");
 	}
+
+	@Test
+	void deveLancarExceptionAoRealizarDivisaoPorZero() {
+		//ACT
+		assertThrows(ArithmeticException.class, () -> calculadora.dividir(120, 0));
+	}
 }
