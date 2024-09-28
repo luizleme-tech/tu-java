@@ -54,4 +54,17 @@ public class CalculadoraTest {
 		//ASSERT
 		assertFalse(resultado, "o número -5 é menor que zero");
 	}
+
+	@Test
+	void deveValidarSeEhNulo() {
+
+		//ARRANGE
+		Calculadora calculadora = new Calculadora();
+
+		//ACT
+		int resultado = calculadora.somar(1, 6);
+
+		//ASSERT
+		assertNotNull(resultado, "o resultado não deve ser nulo");
+	}
 }
