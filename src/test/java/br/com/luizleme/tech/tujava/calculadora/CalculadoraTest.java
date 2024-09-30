@@ -64,4 +64,11 @@ public class CalculadoraTest {
 		//ACT
 		assertThrows(ArithmeticException.class, () -> calculadora.dividir(120, 0));
 	}
+
+	@Test
+	void naoDeveLancarExceptionQuandoOsValoresDaDivisaoForemCorretos() {
+		assertDoesNotThrow(() ->{
+			double resultado = calculadora.dividir(120, 2);
+		});
+	}
 }
