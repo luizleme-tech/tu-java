@@ -2,6 +2,7 @@ package br.com.luizleme.tech.tujava.transacao;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.EnumSource;
 
 import java.time.LocalDate;
 
@@ -22,6 +23,12 @@ public class TransacaoTest {
 		Transacao transacao = new Transacao(id, valor, LocalDate.parse(data), tipoTransacao);
 
 		assertEquals(resultadoEsperado, transacao.validar());
+	}
 
+	@ParameterizedTest
+	@EnumSource(TipoTransacao.class)
+	void deveValidarTipoTransacao(TipoTransacao tipoTransacao) {
+		Transacao transacao = new Transacao("TX", 100.0, LocalDate.now(), tipoTransacao);
+		assertTrue(transacao.validar());
 	}
 }
