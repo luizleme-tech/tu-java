@@ -1,10 +1,12 @@
 package br.com.luizleme.tech.tujava.transacao;
 
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Convert;
 
 import java.time.LocalDate;
 import java.util.stream.Stream;
@@ -40,6 +42,15 @@ public class TransacaoTest {
 	void deveValidarTransacaoComMethodSource(String id, double valor, LocalDate data, TipoTransacao tipo, boolean resultadoEsperado){
 		var transacao = new Transacao(id, valor, data, tipo);
 		assertEquals(resultadoEsperado, transacao.validar());
+	}
+
+	@ParameterizedTest
+	@CsvSource({
+			"'Jose,45',45,",
+			"'Ana,65',65"
+	})
+	void deveValidarConstrucaoObjetoClienteEvaliarIdade(@ConvertWith(ClienteConverter.class) Cliente cliente, int idadeEsperada) {
+		assertEquals(idadeEsperada, cliente.getIdade());
 	}
 
 	static Stream<Arguments> forneceDadosParaValidarTransacao() {
