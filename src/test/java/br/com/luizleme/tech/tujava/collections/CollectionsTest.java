@@ -47,4 +47,14 @@ public class CollectionsTest {
 				.hasSize(3)
 				.contains("Jaiminho");
 	}
+
+	@Test
+	void deveValidarException() {
+		Assertions.assertThatThrownBy(() -> {
+			throw new IllegalArgumentException("Motivo da exceção");
+		}).isInstanceOf(IllegalArgumentException.class)
+				.hasMessage("Motivo da exceção")
+				.hasMessageContaining("Motivo")
+				.hasNoCause();
+	}
 }
