@@ -2,9 +2,9 @@ name: Code Coverage 0th
 
 on:
   pull_request:
-    branches: [ "feature/jacoco" ]
+    branches: [ "cobertura-de-testes-jacoco" ]
   push:
-    branches: [ "feature/jacoco" ]
+    branches: [ "cobertura-de-testes-jacoco" ]
 
 jobs:
   build:
