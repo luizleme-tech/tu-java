@@ -39,4 +39,12 @@ public class CollectionsTest {
 				.containsValues(45,8)
 				.doesNotContainEntry("Seu Barriga", 60);
 	}
+
+	@Test
+	void deveValidarQueues() {
+		Queue<String> queue = new LinkedList<>(List.of("Madruga","Jaiminho","Furtado"));
+		Assertions.assertThat(queue)
+				.hasSize(3)
+				.contains("Jaiminho");
+	}
 }
