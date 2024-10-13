@@ -21,8 +21,9 @@ jobs:
           java-version: '17'
 
       - name: Instalar dependências
-        run: chmod +x ./mvnw
-             ./mvnw install -DskipTests
+        run:
+          chmod +x ./mvnw
+          ./mvnw install -DskipTests
 
       - name: Compilar o Projeto
         run: ./mvnw compile
