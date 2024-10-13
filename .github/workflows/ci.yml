@@ -1,0 +1,36 @@
+name: Code Coverage 0th
+
+on:
+  pull_request:
+    branches: [ "feature/jacoco" ]
+  push:
+    branches: [ "feature/jacoco" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configurar o repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Instalar dependências
+        run: ./mvnw install -DskipTests
+
+      - name: Compilar o Projeto
+        run: ./mvnw compile
+
+      - name: Executar Testes
+        run: ./mvnw test
+
+      - name: Gerar Relatório de Cobertura com JaCoCo
+        run: ./mvnw jacoco:report
+
+      - name: Publicar Resumo do Relatório de Cobertura
+        run: echo "## Relatório de Cobertura de Testes\n\n$(cat target/site/jacoco/index.html)" >> $GITHUB_STEP_SUMMARY
