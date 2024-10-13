@@ -3,9 +3,7 @@ package br.com.luizleme.tech.tujava.collections;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CollectionsTest {
 	@Test
@@ -20,12 +18,25 @@ public class CollectionsTest {
 	}
 
 	@Test
-	void deveValisarUsandoSet() {
+	void deveValidarUsandoSet() {
 		Set<String> cafes = new HashSet<>(List.of("Expresso", "Cappuccino", "Mocha", "Latte", "Americano", "Macchiato", "Filtrado"));
 		Assertions.assertThat(cafes)
 				.hasSize(7)
 				.contains("Filtrado")
 				.doesNotContain("Pingado")
 				.containsOnly("Expresso", "Cappuccino", "Mocha", "Latte", "Americano", "Macchiato", "Filtrado");
+	}
+
+	@Test
+	void deveValidarUsandoMap() {
+		Map<String, Integer> idades = new HashMap<>();
+		idades.put("Madruga", 45);
+		idades.put("Chaves", 8);
+
+		Assertions.assertThat(idades)
+				.hasSize(2)
+				.containsKeys("Madruga", "Chaves")
+				.containsValues(45,8)
+				.doesNotContainEntry("Seu Barriga", 60);
 	}
 }
