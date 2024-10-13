@@ -70,7 +70,6 @@ public class TrabalhandoComMocskTest {
 	@Test
 	void deveCriarSpy() {
 		List<String> spyList = spy(new ArrayList<>());
-
 		spyList.add("1");
 		spyList.add("2");
 
