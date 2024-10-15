@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -37,6 +38,17 @@ public class UserControllerTest {
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.name").value("Florinda"))
 				.andExpect(jsonPath("$.email").value("florinda@gmail.com"));
+	}
 
+	@Test
+	void deveObterUsuarioPeloId() throws Exception {
+		User user = new User(1L, "Madruga", "madruga@gmail.com");
+
+		when(userService.getUserById(1L)).thenReturn(user);
+
+		mockMvc.perform(get("/api/users/1"))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("Madruga"))
+			.andExpect(jsonPath("$.email").value("madruga@gmail.com"));
 	}
 }
