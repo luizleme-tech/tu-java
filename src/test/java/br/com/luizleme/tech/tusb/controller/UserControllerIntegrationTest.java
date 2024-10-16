@@ -32,4 +32,12 @@ class UserControllerIntegrationTest {
 		ResponseEntity<User> response = testRestTemplate.getForEntity("/api/users/1", User.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
+
+	@Test
+	void deveCriarUmUsuarioNaBase() {
+		User user = new User(3L,"Dona Neves", "dona.neves@gmail.com");
+		ResponseEntity<User> response = testRestTemplate.postForEntity("/api/users", user, User.class);
+		assertEquals(HttpStatus.CREATED, response.getStatusCode());
+		assertEquals("Dona Neves", response.getBody().getName());
+	}
 }
