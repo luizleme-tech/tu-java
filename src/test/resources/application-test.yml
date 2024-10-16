@@ -2,7 +2,7 @@ spring:
   application:
     name: tujava
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:test
     driver-class-name: org.h2.Driver
     username: sa
     password:
@@ -14,6 +14,11 @@ spring:
     h2:
       console:
         enabled: true
+    initialization:
+      mode: always
+  sql:
+    init:
+      mode: never
 logging:
   level:
     org:

@@ -2,6 +2,7 @@ package br.com.luizleme.tech.tusb.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-@Getter
+@Data
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
