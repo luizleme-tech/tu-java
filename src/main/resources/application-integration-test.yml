@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: tujava
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      hbm2ddl:
+        auto: create
