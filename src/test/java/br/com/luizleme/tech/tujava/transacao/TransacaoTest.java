@@ -38,6 +38,14 @@ public class TransacaoTest {
 	}
 
 	@ParameterizedTest
+	@EnumSource(value = TipoTransacao.class, mode = EnumSource.Mode.EXCLUDE, names = {"DEBITO"})
+	void deveValidarTipoTransacaoDiferenteDeDebito(TipoTransacao tipoTransacao) {
+		var transacao = new Transacao("TX1", 1500, LocalDate.now(), tipoTransacao);
+		assertTrue(transacao.validar());
+		assertFalse(TipoTransacao.DEBITO.equals(transacao.getTipo()));
+	}
+
+	@ParameterizedTest
 	@MethodSource("forneceDadosParaValidarTransacao")
 	void deveValidarTransacaoComMethodSource(String id, double valor, LocalDate data, TipoTransacao tipo, boolean resultadoEsperado){
 		var transacao = new Transacao(id, valor, data, tipo);
