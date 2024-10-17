@@ -9,8 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 class UserRepositoryTest {
@@ -27,5 +25,13 @@ class UserRepositoryTest {
 		User userFounded = userRepository.findById(user.getId()).orElse(null);
 		Assertions.assertThat(userFounded).isNotNull();
 		Assertions.assertThat(userFounded.getName()).isEqualTo(user.getName());
+	}
+
+	@Test
+	void deveCriarUmUsuarioNaBaseDeDados() {
+		var user =  new User("Chaves", "chaves.do.oito@gmail.com");
+		var save = userRepository.save(user);
+
+		Assertions.assertThat(save.getId()).isNotNull();
 	}
 }
