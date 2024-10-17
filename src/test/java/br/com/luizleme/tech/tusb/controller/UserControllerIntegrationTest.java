@@ -1,5 +1,6 @@
 package br.com.luizleme.tech.tusb.controller;
 
+import br.com.luizleme.tech.tusb.SecurityTestConfig;
 import br.com.luizleme.tech.tusb.domain.User;
 import br.com.luizleme.tech.tusb.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,12 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Import(SecurityTestConfig.class)
 class UserControllerIntegrationTest {
 
 	@Autowired
