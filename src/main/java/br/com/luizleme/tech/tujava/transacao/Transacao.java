@@ -1,5 +1,7 @@
 package br.com.luizleme.tech.tujava.transacao;
 
+import lombok.Getter;
+
 import java.time.LocalDate;
 
 public class Transacao {
@@ -7,6 +9,7 @@ public class Transacao {
 	private String id;
 	private double valor;
 	private LocalDate data;
+	@Getter
 	private TipoTransacao tipo;
 
 	public Transacao(String id, double valor, LocalDate data, TipoTransacao tipo) {
