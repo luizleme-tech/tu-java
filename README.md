@@ -1,5 +1,8 @@
 # TU-Java
-![Capa do Projeto](https://via.placeholder.com/1200x400.png?text=Imagem+de+Capa+do+Projeto)
+
+<p align="center">
+  <img src="https://github.com/luizleme-tech/tu-java/blob/main/logo-tu-java.png" align="center" style="border-radius: 50%; display: block; margin: auto;" width="35%" >
+</p>
 
 [![Java Version](https://img.shields.io/badge/Java-17-blue)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.2-brightgreen)](https://spring.io/projects/spring-boot)
